@@ -5,7 +5,7 @@ Tags:  button, buttons, floating, clickable, button generator
 Requires at least: 5.5
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ Please use WordPress support forum to ask any query.
 
 
 == Changelog ==
+= 3.0.3 =
+* Fixed: Minor bugs related to escaping.
+
 = 3.0.2 =
 * Updated: FontAwesome Icon to version 6.6
 

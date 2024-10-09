@@ -37,7 +37,7 @@ class WOWP_Admin {
 	}
 
 	public function reset_statistic(): void {
-		$id = absint( $_POST['id'] );
+		$id = !empty( $_POST['id'] ) ? absint( wp_unslash($_POST['id']) ) : 0;
 		if ( ! current_user_can( 'manage_options' ) ) {
 			exit();
 		}

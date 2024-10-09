@@ -43,7 +43,8 @@ class Dashboard {
 		if ( $pagenow === 'admin.php' && ( isset( $_GET['page'] ) && $_GET['page'] === WOWP_Plugin::SLUG ) ) {
 			$text = sprintf(
 			/* translators: 1: Rating link (URL), 2: Plugin name */
-				__( 'Thank you for using <b>%2$s</b>! Please <a href="%1$s" target="_blank">rate us</a>', 'button-generation' ),
+				__( 'Thank you for using <b>%2$s</b>! Please <a href="%1$s" target="_blank">rate us</a>',
+					'button-generation' ),
 				esc_url( WOWP_Plugin::info( 'rating' ) ),
 				esc_attr( WOWP_Plugin::info( 'name' ) )
 			);
@@ -55,7 +56,6 @@ class Dashboard {
 	}
 
 	public static function admin_assets( $hook ): void {
-
 		$page = 'wow-plugins_page_' . WOWP_Plugin::SLUG;
 		if ( $page !== $hook ) {
 			return;
@@ -81,11 +81,10 @@ class Dashboard {
 			foreach ( $scripts as $key => $script ) {
 				$name = $script['file'];
 				$file = $key . '.' . $name;
-				wp_enqueue_script( $slug . '-admin-' . $name, $assets_url . 'js/' . $file . '.js', [ 'jquery' ], $version, true );
+				wp_enqueue_script( $slug . '-admin-' . $name, $assets_url . 'js/' . $file . '.js', [ 'jquery' ],
+					$version, true );
 			}
 		}
-
-
 	}
 
 	public static function admin_page(): void {
@@ -114,24 +113,29 @@ class Dashboard {
             <div class="wpie-header-border"></div>
             <div class="wpie-header">
                 <div class="wpie-header__container">
-					<?php if ( ! empty( $logo_url ) ): ?>
+					<?php
+					if ( ! empty( $logo_url ) ): ?>
                         <div class="wpie-logo">
-                            <img src="<?php echo esc_url( $logo_url ); ?>"
-                                 alt="<?php echo esc_attr( WOWP_Plugin::info( 'name' ) ); ?> logo">
+                            <img src="<?php
+							echo esc_url( $logo_url ); ?>" alt="<?php
+							echo esc_attr( WOWP_Plugin::info( 'name' ) ); ?> logo">
                         </div>
-					<?php endif; ?>
-                    <h1><?php echo esc_html( WOWP_Plugin::info( 'name' ) ); ?> <sup
-                                class="wpie-version"><?php echo esc_html( WOWP_Plugin::info( 'version' ) ); ?></sup>
+					<?php
+					endif; ?>
+                    <h1><?php
+						echo esc_html( WOWP_Plugin::info( 'name' ) ); ?> <sup class="wpie-version"><?php
+							echo esc_html( WOWP_Plugin::info( 'version' ) ); ?></sup>
                     </h1>
-                    <a href="<?php echo esc_url( Link::add_new_item() ); ?>"
-                       class="button button-primary"><?php esc_html_e( 'Add New', 'button-generation' ); ?>
+                    <a href="<?php
+					echo esc_url( Link::add_new_item() ); ?>" class="button button-primary"><?php
+						esc_html_e( 'Add New', 'button-generation' ); ?>
                     </a>
-					<?php do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
+					<?php
+					do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
                 </div>
             </div>
         </div>
 		<?php
-
 	}
 
 
@@ -149,7 +153,7 @@ class Dashboard {
 
 		$current_page = self::get_current_page();
 
-		$action = ( isset( $_REQUEST["action"] ) ) ? sanitize_text_field( $_REQUEST["action"] ) : '';
+		$action = ( isset( $_REQUEST["action"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["action"] ) ) : '';
 
 		echo '<h2 class="nav-tab-wrapper wpie-nav-tab-wrapper">';
 		foreach ( $pages as $key => $page ) {
@@ -163,7 +167,8 @@ class Dashboard {
 				continue;
 			}
 
-			echo '<a class="nav-tab' . esc_attr( $class ) . '" href="' . esc_url( Link::menu( $page['file'], $action, $id ) ) . '">' . esc_html( $page['name'] ) . '</a>';
+			echo '<a class="nav-tab' . esc_attr( $class ) . '" href="' . esc_url( Link::menu( $page['file'], $action,
+					$id ) ) . '">' . esc_html( $page['name'] ) . '</a>';
 		}
 		echo '</h2>';
 	}
@@ -171,7 +176,7 @@ class Dashboard {
 	public static function get_current_page(): string {
 		$default = DashboardHelper::first_file( 'pages' );
 
-		return ( isset( $_REQUEST["tab"] ) ) ? sanitize_text_field( $_REQUEST["tab"] ) : $default;
+		return ( isset( $_REQUEST["tab"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["tab"] ) ) : $default;
 	}
 
 	public static function include_pages(): void {
@@ -194,7 +199,6 @@ class Dashboard {
 				require_once $page_path;
 			}
 		}
-
 	}
 
 }

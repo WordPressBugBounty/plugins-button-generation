@@ -33,7 +33,7 @@ class ImporterExporter {
             <p></p>
             <p>
 				<?php
-				submit_button( __( 'Export All Data', 'button-generation' ), 'primary', 'submit', false ); ?><?php
+				submit_button( __( 'Export All Data', 'side-menu-lite' ), 'secondary', 'submit', false ); ?><?php
 				wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_export_data' ); ?>
             </p>
         </form>
@@ -46,20 +46,20 @@ class ImporterExporter {
         <form method="post" enctype="multipart/form-data" action="">
             <p>
                 <span class="wpie-file">
-                <input type="file" name="import_file" class="" accept="*.json"/>
+                <input type="file" name="import_file" accept="*.json"/>
                 </span>
             </p>
             <p>
                 <label>
                     <input type="checkbox" name="wpie_import_update" value="1">
-					<?php esc_html_e( 'Update item if item already exists.', 'button-generation' ); ?>
+					<?php esc_html_e( 'Update item if item already exists.', 'side-menu-lite' ); ?>
                 </label>
 
             </p>
 
             <p>
 				<?php
-				submit_button( __( 'Import', 'button-generation' ), 'primary', 'submit', false ); ?><?php
+				submit_button( __( 'Import', 'side-menu-lite' ), 'secondary', 'submit', false ); ?><?php
 				wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_import_data' ); ?>
             </p>
         </form>
@@ -71,13 +71,32 @@ class ImporterExporter {
 	 * @throws \JsonException
 	 */
 	public static function import_data(): void {
-		if ( self::get_file_extension( $_FILES['import_file']['name'] ) !== 'json' ) {
-			wp_die( esc_attr__( 'Please upload a valid .json file', 'button-generation' ), esc_attr__( 'Error', 'button-generation' ),
+		$verify = AdminActions::verify(WOWP_Plugin::PREFIX . '_import_data');
+
+		if ( ! $verify ) {
+			return;
+		}
+
+		if ( ! isset( $_FILES['import_file'] ) || empty( $_FILES['import_file']['name'] ) ) {
+			wp_die( esc_attr__( 'Please select a file to import', 'side-menu-lite' ),
+				esc_attr__( 'Error', 'side-menu-lite' ),
 				[ 'response' => 400 ] );
 		}
 
+		if ( self::get_file_extension( sanitize_text_field( $_FILES['import_file']['name'] ) ) !== 'json' ) {
+			wp_die(
+				esc_html__( 'Please upload a valid .json file', 'side-menu-lite' ),
+				esc_html__( 'Error', 'side-menu-lite' ),
+				[ 'response' => 400 ] );
+		}
 
-		$import_file = $_FILES['import_file']['tmp_name'];
+		if ( empty( $_FILES['import_file']['tmp_name'] ) ) {
+			wp_die( esc_attr__( 'Please select a file to import', 'side-menu-lite' ),
+				esc_attr__( 'Error', 'side-menu-lite' ),
+				[ 'response' => 400 ] );
+		}
+
+		$import_file = sanitize_text_field( $_FILES['import_file']['tmp_name'] );
 		$settings    = wp_json_file_decode( $import_file );
 
 		$columns = DBManager::get_columns();
@@ -89,17 +108,8 @@ class ImporterExporter {
 			$formats = [];
 
 			foreach ( $columns as $column ) {
-				$name = $column->Field;
-
-				if ( $name === 'param' ) {
-					$param_input   = maybe_unserialize( $val->$name );
-					$new_param     = UpdateDB::update_param( $param_input );
-					$param_output  = maybe_serialize( $new_param );
-					$data[ $name ] = $param_output;
-				} else {
-					$data[ $name ] = ! empty( $val->$name ) ? $val->$name : '';
-				}
-
+				$name          = $column->Field;
+				$data[ $name ] = ! empty( $val->$name ) ? $val->$name : '';
 				if ( $name === 'id' || $name === 'status' || $name === 'mode' ) {
 					$formats[] = '%d';
 				} else {
@@ -144,9 +154,15 @@ class ImporterExporter {
 	/**
 	 * @throws \JsonException
 	 */
-	public static function export_item( $id = 0, $action = '' ) {
-		$page   = isset( $_GET['page'] ) ? sanitize_text_field( $_GET['page'] ) : '';
-		$action = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : $action;
+	public static function export_item( $id = 0, $action = '' ): bool {
+		$verify = AdminActions::verify(WOWP_Plugin::PREFIX . '_export_item');
+
+		if ( ! $verify ) {
+			return false;
+		}
+
+		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : $action;
 		$id     = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : $id;
 
 		if ( ( $page !== WOWP_Plugin::SLUG ) || ( $action !== 'export' ) || empty( $id ) ) {
@@ -170,6 +186,12 @@ class ImporterExporter {
 	 * @throws \JsonException
 	 */
 	public static function export_data(): bool {
+		$verify = AdminActions::verify(WOWP_Plugin::PREFIX . '_export_data');
+
+		if ( ! $verify ) {
+			return false;
+		}
+
 		$file_name = WOWP_Plugin::SHORTCODE . '-database-' . gmdate( 'm-d-Y' ) . '.json';
 		$data      = DBManager::get_all_data();
 		if ( empty( $data ) ) {

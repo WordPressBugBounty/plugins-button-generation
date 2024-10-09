@@ -42,12 +42,12 @@ class WOWP_Public {
 
 
 	public function button_action() {
-
-		if ( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'btg_button_counter' ) ) {
+		if ( ! isset( $_POST['security'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['security'] ) ),
+				'btg_button_counter' ) ) {
 			exit();
 		}
 
-		$id     = absint( $_POST['id'] );
+		$id     = isset( $_POST['id'] ) ? absint( wp_unslash( $_POST['id'] ) ) : 0;
 		$result = DBManager::get_data_by_id( $id );
 
 		if ( empty( $result->param ) ) {
@@ -62,7 +62,6 @@ class WOWP_Public {
 		$next_count  = absint( $count ) + 1;
 		$updated     = update_option( $option_name, $next_count );
 		if ( true === $updated ) {
-
 			$response = [
 				'msg'   => 'OK',
 				'count' => $next_count
@@ -84,7 +83,6 @@ class WOWP_Public {
 		$args      = $singleton->getValue();
 
 		if ( ! empty( $args ) ) {
-
 			wp_enqueue_style( $handle, $assets . 'css/button' . $this->pefix . '.css', [], $version, $media = 'all' );
 
 			$custom_css = '';
@@ -102,7 +100,6 @@ class WOWP_Public {
 	}
 
 	public function filter_content( $content ) {
-
 		$singleton = Singleton::getInstance();
 		$args      = $singleton->getValue();
 
@@ -118,7 +115,6 @@ class WOWP_Public {
 				if ( $param['standard'] === 'after' ) {
 					unset( $param['_in_footer'] );
 					$after .= do_shortcode( '[' . esc_attr( WOWP_Plugin::SHORTCODE ) . ' id="' . absint( $id ) . '" ]' );
-
 				}
 				if ( $param['standard'] === 'before' ) {
 					unset( $param['_in_footer'] );
@@ -141,7 +137,6 @@ class WOWP_Public {
 
 
 	public function shortcode( $atts ): string {
-
 		$atts = shortcode_atts(
 			[ 'id' => "" ],
 			$atts,
@@ -156,11 +151,8 @@ class WOWP_Public {
 		$singleton = Singleton::getInstance();
 
 		if ( $singleton->hasKey( $atts['id'] ) ) {
-
 			$param = $singleton->getValueByKey( $atts['id'] );
-
 		} else {
-
 			$result = DBManager::get_data_by_id( $atts['id'] );
 
 			if ( empty( $result->param ) ) {
@@ -183,12 +175,10 @@ class WOWP_Public {
 		$this->view_counter( $atts['id'] );
 
 		return $out;
-
 	}
 
 
 	public function footer(): void {
-
 		$handle          = WOWP_Plugin::SLUG;
 		$assets          = plugin_dir_url( __FILE__ ) . 'assets/';
 		$version         = WOWP_Plugin::info( 'version' );
@@ -267,7 +257,6 @@ class WOWP_Public {
 								$singleton->setValue( $attrs['id'], $param );
 							}
 						}
-
 					}
 				}
 			}
@@ -277,7 +266,10 @@ class WOWP_Public {
 	private function view_counter( $id ): void {
 		$prefix       = 'button_generator';
 		$should_count = true;
-		$useragent    = $_SERVER['HTTP_USER_AGENT'];
+		if(empty($_SERVER['HTTP_USER_AGENT'])) {
+			return;
+		}
+		$useragent    = sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) );
 		$notbot       = "Mozilla|Opera";
 		$bot          = "Bot/|robot|Slurp/|yahoo";
 		if ( ! preg_match( "/$notbot/i", $useragent ) || preg_match( "!$bot!i", $useragent ) ) {

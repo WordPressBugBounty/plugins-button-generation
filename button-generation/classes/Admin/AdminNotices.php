@@ -21,13 +21,11 @@ defined( 'ABSPATH' ) || exit;
 
 class AdminNotices {
 
-
 	public static function init(): void {
 		add_action( 'admin_notices', [ __CLASS__, 'admin_notice' ] );
 	}
 
 	public static function admin_notice(): bool {
-		$notice = $_GET['notice'] ?? '';
 
 		if ( ! isset( $_GET['page'] ) ) {
 			return false;
@@ -37,9 +35,9 @@ class AdminNotices {
 			return false;
 		}
 
-		if ( ! empty( $notice ) && $notice === 'save_item' ) {
+		if ( ! empty( $_GET['notice'] ) && $_GET['notice'] === 'save_item' ) {
 			self::save_item();
-		} elseif ( ! empty( $notice ) && $notice === 'remove_item' ) {
+		} elseif ( ! empty( $_GET['notice'] ) && $_GET['notice'] === 'remove_item' ) {
 			self::remove_item();
 		}
 
@@ -47,15 +45,16 @@ class AdminNotices {
 	}
 
 	public static function save_item(): void {
-		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( $_REQUEST['nonce'], 'save-item' ) ) {
+		$nonce = isset( $_REQUEST['nonce'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ) : '';
 
-			$text = __( 'Item Saved', 'button-generation' );
+		if ( ! empty( $nonce ) && wp_verify_nonce( $nonce, 'save-item' ) ) {
+			$text = __( 'Item Saved', 'side-menu-lite' );
 			echo '<div class="wpie-notice notice notice-success is-dismissible">' . esc_html( $text ) . '</div>';
 		}
 	}
 
 	public static function remove_item(): void {
-		$text = __( 'Item Remove', 'button-generation' );
+		$text = __( 'Item Remove', 'side-menu-lite' );
 		echo '<div class="wpie-notice notice notice-warning is-dismissible">' . esc_html( $text ) . '</div>';
 	}
 

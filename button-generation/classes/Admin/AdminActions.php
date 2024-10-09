@@ -26,8 +26,9 @@ class AdminActions {
 	}
 
 	public static function actions(): bool {
-		$name = self::check_name( $_REQUEST );
-		if ( ! $name ) {
+		$name = self::check_name();
+
+		if ( empty( $name ) ) {
 			return false;
 		}
 		$verify = self::verify( $name );
@@ -55,17 +56,21 @@ class AdminActions {
 		} elseif ( strpos( $name, '_deactivate_mode' ) !== false ) {
 			Settings::deactivate_mode();
 		}
+		elseif ( strpos( $name, '_capabilities' ) !== false ) {
+			ManageCapabilities::save();
+		}
 
 		return true;
 	}
 
-	private static function verify( $name ): bool {
+	public static function verify( $name ): bool {
 		$nonce_action = WOWP_Plugin::PREFIX . '_nonce';
+		$nonce        = isset( $_REQUEST[ $name ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ $name ] ) ) : '';
 
-		return ! ( ! isset( $_REQUEST[ $name ] ) || ! wp_verify_nonce( $_REQUEST[ $name ], $nonce_action ) || ! current_user_can( 'manage_options' ) );
+		return ( ! empty( $nonce ) ) && ( wp_verify_nonce( $nonce, $nonce_action ) || current_user_can( 'manage_options' ) );
 	}
 
-	private static function check_name( $request ) {
+	private static function check_name(): string {
 		$names = [
 			WOWP_Plugin::PREFIX . '_import_data',
 			WOWP_Plugin::PREFIX . '_export_data',
@@ -76,17 +81,17 @@ class AdminActions {
 			WOWP_Plugin::PREFIX . '_deactivate_item',
 			WOWP_Plugin::PREFIX . '_activate_mode',
 			WOWP_Plugin::PREFIX . '_deactivate_mode',
+			WOWP_Plugin::PREFIX . '_capabilities',
 		];
 
-		foreach ( $request as $key => $value ) {
-
-			if ( in_array( $key, $names, true ) ) {
-				return $key;
+		foreach ( $names as $name ) {
+			if ( isset( $_REQUEST[ $name ] ) ) {
+				return $name;
 			}
 		}
 
-		return false;
-
+		return '';
 	}
+
 
 }

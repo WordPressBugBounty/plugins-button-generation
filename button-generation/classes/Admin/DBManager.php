@@ -22,8 +22,14 @@ use ButtonGenerator\WOWP_Plugin;
 class DBManager {
 
 	public static function remove_item() {
-		$page   = isset( $_GET['page'] ) ? sanitize_text_field( $_GET['page'] ) : '';
-		$action = isset( $_GET['action'] ) ? sanitize_text_field( $_GET['action'] ) : '';
+		$verify = AdminActions::verify( WOWP_Plugin::PREFIX . '_remove_item' );
+
+		if ( ! $verify ) {
+			return false;
+		}
+
+		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
 		$id     = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : '';
 
 		if ( ( $page !== WOWP_Plugin::SLUG ) || ( $action !== 'delete' ) || empty( $id ) ) {
@@ -57,12 +63,12 @@ class DBManager {
 	}
 
 	public static function create( $columns ): void {
-		global $wpdb;
 
+		global $wpdb;
 		$table           = $wpdb->prefix . WOWP_Plugin::PREFIX;
 		$charset_collate = $wpdb->get_charset_collate();
 
-		$sql = "CREATE TABLE $table ($columns) $charset_collate;";
+		$sql = "CREATE TABLE {$table} ($columns) $charset_collate;";
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
@@ -71,7 +77,7 @@ class DBManager {
 	public static function get_all_data() {
 		global $wpdb;
 		$table  = $wpdb->prefix . WOWP_Plugin::PREFIX;
-		$result = $wpdb->get_results( "SELECT * FROM $table ORDER BY id ASC" );
+		$result = $wpdb->get_results( "SELECT * FROM {$table} ORDER BY id ASC" );
 
 		return ( ! empty( $result ) && is_array( $result ) ) ? $result : false;
 	}
@@ -83,7 +89,7 @@ class DBManager {
 		global $wpdb;
 		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
 
-		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE id=%d", absint( $id ) ) );
+		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE id=%d", absint( $id ) ) );
 	}
 
 	public static function get_param_id( $id = '' ) {
@@ -103,7 +109,7 @@ class DBManager {
 		global $wpdb;
 		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
 
-		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE title=%s", sanitize_text_field( $title ) ) );
+		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE title=%s", sanitize_text_field( $title ) ) );
 	}
 
 	public static function update( $data, $where, $data_formats ): void {
@@ -143,15 +149,15 @@ class DBManager {
 
 	public static function get_columns() {
 		global $wpdb;
-		$table_name = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
 
-		return $wpdb->get_results( "DESCRIBE $table_name" );
+		return $wpdb->get_results( "DESCRIBE {$table}" );
 	}
 
 	public static function display_tags(): void {
 		global $wpdb;
 		$table  = $wpdb->prefix . WOWP_Plugin::PREFIX;
-		$result = $wpdb->get_results( "SELECT * FROM $table order by tag desc", ARRAY_A );
+		$result = $wpdb->get_results( "SELECT * FROM {$table} order by tag desc", ARRAY_A );
 		$tags   = [];
 		if ( ! empty( $result ) ) {
 			foreach ( $result as $column ) {
@@ -170,7 +176,7 @@ class DBManager {
 	public static function get_tags_from_table() {
 		global $wpdb;
 		$table    = $wpdb->prefix . WOWP_Plugin::PREFIX;
-		$all_tags = $wpdb->get_results( "SELECT DISTINCT tag FROM $table ORDER BY tag ASC", ARRAY_A );
+		$all_tags = $wpdb->get_results( "SELECT DISTINCT tag FROM {$table} ORDER BY tag ASC", ARRAY_A );
 
 		return ! empty( $all_tags ) ? $all_tags : false;
 	}
