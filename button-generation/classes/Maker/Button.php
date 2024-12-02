@@ -57,6 +57,9 @@ class Button {
 		if ( ! empty( $param['button_id'] ) ) {
 			$menu .= ' id="' . esc_attr( $param['button_id'] ) . '"';
 		}
+		if ( ! empty( $param['aria_label'] ) ) {
+			$menu .= ' aria-label="' . esc_attr( $param['aria_label'] ) . '"';
+		}
 		$menu .= $this->type();
 		$menu .= '>';
 		$menu .= $this->text();

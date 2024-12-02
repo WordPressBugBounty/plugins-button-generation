@@ -33,12 +33,12 @@ class SupportForm {
 
             <fieldset class="wpie-fieldset">
                 <legend>
-					<?php esc_html_e( 'Support Form', 'side-menu-lite' ); ?>
+					<?php esc_html_e( 'Support Form', 'button-generation' ); ?>
                 </legend>
 
                 <div class="wpie-fields is-column-2">
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Your Name', 'side-menu-lite' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Your Name', 'button-generation' ); ?></div>
                         <label class="wpie-field__label has-icon">
                             <span class="dashicons dashicons-admin-users"></span>
                             <input type="text" name="support[name]" id="support-name" value="">
@@ -46,7 +46,7 @@ class SupportForm {
                     </div>
 
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Contact email', 'side-menu-lite' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Contact email', 'button-generation' ); ?></div>
                         <label class="wpie-field__label has-icon">
                             <span class="dashicons dashicons-email"></span>
                             <input type="email" name="support[email]" id="support-email"
@@ -58,7 +58,7 @@ class SupportForm {
                 <div class="wpie-fields is-column-2">
 
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Link to the issue', 'side-menu-lite' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Link to the issue', 'button-generation' ); ?></div>
                         <label class="wpie-field__label has-icon">
                             <span class="dashicons dashicons-admin-links"></span>
                             <input type="url" name="support[link]" id="support-link"
@@ -67,11 +67,11 @@ class SupportForm {
                     </div>
 
                     <div class="wpie-field" data-field-box="menu_open">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Message type', 'side-menu-lite' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Message type', 'button-generation' ); ?></div>
                         <label class="wpie-field__label">
                             <select name="support[type]" id="support-type">
-                                <option value="Issue"><?php esc_html_e( 'Issue', 'side-menu-lite' ); ?></option>
-                                <option value="Idea"><?php esc_html_e( 'Idea', 'side-menu-lite' ); ?></option>
+                                <option value="Issue"><?php esc_html_e( 'Issue', 'button-generation' ); ?></option>
+                                <option value="Idea"><?php esc_html_e( 'Idea', 'button-generation' ); ?></option>
                             </select>
                         </label>
                     </div>
@@ -79,7 +79,7 @@ class SupportForm {
                 </div>
                 <div class="wpie-fields is-column-2">
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'Plugin', 'side-menu-lite' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'Plugin', 'button-generation' ); ?></div>
                         <label class="wpie-field__label has-icon">
                             <span class="dashicons dashicons-admin-plugins"></span>
                             <input type="text" readonly name="support[plugin]" id="support-plugin"
@@ -88,7 +88,7 @@ class SupportForm {
                     </div>
 
                     <div class="wpie-field">
-                        <div class="wpie-field__title"><?php esc_html_e( 'License Key', 'side-menu-lite' ); ?></div>
+                        <div class="wpie-field__title"><?php esc_html_e( 'License Key', 'button-generation' ); ?></div>
                         <label class="wpie-field__label has-icon">
                             <span class="wpie-icon wpie_icon-key"></span>
                             <input type="text" readonly name="support[license]" id="support-license"
@@ -99,7 +99,7 @@ class SupportForm {
                 </div>
                 <div class="wpie-fields is-column">
 					<?php
-					$content   = __( 'Enter Your Message', 'side-menu-lite' );
+					$content   = __( 'Enter Your Message', 'button-generation' );
 					$editor_id = 'support-message';
 					$settings  = array(
 						'textarea_name' => 'support[message]',
@@ -110,7 +110,7 @@ class SupportForm {
                 <div class="wpie-fields is-column">
 
                     <div class="wpie-field">
-						<?php submit_button( __( 'Send to Support', 'side-menu-lite' ), 'primary', 'submit', false ); ?>
+						<?php submit_button( __( 'Send to Support', 'button-generation' ), 'primary', 'submit', false ); ?>
                     </div>
                 </div>
 				<?php wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_support' ); ?>
@@ -176,10 +176,10 @@ class SupportForm {
 		$send         = wp_mail( $to_mail, 'Support Request: ' . $type, $message_mail, $headers );
 
 		if ( $send ) {
-			$text = __( 'Your message has been sent to the support team.', 'side-menu-lite' );
+			$text = __( 'Your message has been sent to the support team.', 'button-generation' );
 			echo '<p class="notice notice-success">' . esc_html( $text ) . '</p>';
 		} else {
-			$text = __( 'Sorry, but message did not send. Please, contact us via support page.', 'side-menu-lite' );
+			$text = __( 'Sorry, but message did not send. Please, contact us via support page.', 'button-generation' );
 			echo '<p class="notice notice-error">' . esc_html( $text ) . '</p>';
 		}
 
@@ -191,7 +191,7 @@ class SupportForm {
 
 		foreach ( $fields as $field ) {
 			if ( empty( $_POST['support'][ $field ] ) ) {
-				return __( 'Please fill in all the form fields below.', 'side-menu-lite' );
+				return __( 'Please fill in all the form fields below.', 'button-generation' );
 			}
 		}
 

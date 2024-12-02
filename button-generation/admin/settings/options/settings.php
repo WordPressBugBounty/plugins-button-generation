@@ -98,4 +98,9 @@ return [
 		'title' => __( 'ID', 'button-generation' ),
 	],
 
+	'aria_label' => [
+		'type'  => 'text',
+		'title' => __( 'Aria label', 'button-generation' ),
+	],
+
 ];

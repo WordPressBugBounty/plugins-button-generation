@@ -3,7 +3,7 @@
  *  Plugin Name:       Button Generator
  *  Plugin URI:        https://wordpress.org/plugins/button-generation/
  *  Description:       Easy generation of custom buttons.
- *  Version:           3.0.3
+ *  Version:           3.1
  *  Author:            Wow-Company
  *  Author URI:        https://wow-estore.com/
  *  License:           GPL-2.0+
@@ -16,7 +16,7 @@
  *  Rating URI:        https://wordpress.org/support/plugin/button-generation/reviews/#new-post
  *  Support URI:       https://wordpress.org/support/plugin/button-generation/
  *  Item URI:          https://wow-estore.com/item/button-generator-pro/
- *  Change URI:        https://wow-estore.com/button-generator-changelog/
+ *  Change URI:        https://wordpress.org/plugins/button-generation/#developers
  *
  *  PHP version        7.4
  *
@@ -161,10 +161,10 @@ if ( ! class_exists( 'WOWP_Plugin' ) ) :
 			$columns = "
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			title VARCHAR(200) DEFAULT '' NOT NULL,
-			param longtext DEFAULT '' NOT NULL,
+			param longtext,
 			status boolean DEFAULT 0 NOT NULL,
 			mode boolean DEFAULT 0 NOT NULL,
-			tag text DEFAULT '' NOT NULL,
+			tag text,
 			PRIMARY KEY  (id)
 			";
 			DBManager::create( $columns );

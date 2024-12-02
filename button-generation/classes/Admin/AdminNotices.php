@@ -48,13 +48,13 @@ class AdminNotices {
 		$nonce = isset( $_REQUEST['nonce'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ) : '';
 
 		if ( ! empty( $nonce ) && wp_verify_nonce( $nonce, 'save-item' ) ) {
-			$text = __( 'Item Saved', 'side-menu-lite' );
+			$text = __( 'Item Saved', 'button-generation' );
 			echo '<div class="wpie-notice notice notice-success is-dismissible">' . esc_html( $text ) . '</div>';
 		}
 	}
 
 	public static function remove_item(): void {
-		$text = __( 'Item Remove', 'side-menu-lite' );
+		$text = __( 'Item Remove', 'button-generation' );
 		echo '<div class="wpie-notice notice notice-warning is-dismissible">' . esc_html( $text ) . '</div>';
 	}
 

@@ -82,9 +82,9 @@ $open       = ! empty( $item_order ) ? ' open' : '';
                 <div class="wpie-legend"><?php
 					esc_html_e( 'Attributes', 'button-generation' ); ?></div>
                 <div class="wpie-fields">
-					<?php
-					$field->create( 'button_id' ); ?><?php
-					$field->create( 'button_class' ); ?>
+					<?php $field->create( 'button_id' ); ?>
+                    <?php $field->create( 'button_class' ); ?>
+                    <?php $field->create( 'aria_label' ); ?>
                 </div>
             </div>
 

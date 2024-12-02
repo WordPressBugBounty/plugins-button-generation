@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Button Generator\n"
-"POT-Creation-Date: 2024-04-08 15:53+0300\n"
+"POT-Creation-Date: 2024-12-02 09:44+0200\n"
 "PO-Revision-Date: 2024-04-08 15:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,14 +10,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: button-generation.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -973,11 +973,11 @@ msgstr ""
 msgid "Spin"
 msgstr ""
 
-#: admin/class-settings-helper.php:2474
+#: admin/class-settings-helper.php:2499
 msgid "Enable"
 msgstr ""
 
-#: admin/pages/1.list.php:18
+#: admin/pages/1.list.php:50
 msgid "Search"
 msgstr ""
 
@@ -1032,15 +1032,15 @@ msgid ""
 "Also, you can send us your ideas and suggestions for improving the plugin."
 msgstr ""
 
-#: admin/settings/1.settings.php:15
+#: admin/settings/1.settings.php:23
 msgid "Content"
 msgstr ""
 
-#: admin/settings/1.settings.php:32 admin/settings/options/rules.php:77
+#: admin/settings/1.settings.php:64 admin/settings/options/rules.php:77
 msgid "Type"
 msgstr ""
 
-#: admin/settings/1.settings.php:40
+#: admin/settings/1.settings.php:83
 msgid "Attributes"
 msgstr ""
 
@@ -1064,19 +1064,19 @@ msgstr ""
 msgid "Font"
 msgstr ""
 
-#: admin/settings/5.rules.php:17
+#: admin/settings/5.rules.php:18
 msgid "Button Type"
 msgstr ""
 
-#: admin/settings/5.rules.php:30
+#: admin/settings/5.rules.php:42
 msgid "Display Rules"
 msgstr ""
 
-#: admin/settings/5.rules.php:41
+#: admin/settings/5.rules.php:75
 msgid "Responsive Visibility"
 msgstr ""
 
-#: admin/settings/5.rules.php:51
+#: admin/settings/5.rules.php:105
 msgid "Other"
 msgstr ""
 
@@ -1092,7 +1092,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: admin/settings/options/rules.php:10 classes/Admin/ListTable.php:106
+#: admin/settings/options/rules.php:10 classes/Admin/ListTable.php:111
 msgid "Shortcode"
 msgstr ""
 
@@ -1172,7 +1172,7 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: admin/settings/options/rules.php:31 classes/Admin/ListTable.php:108
+#: admin/settings/options/rules.php:31 classes/Admin/ListTable.php:112
 msgid "Tag"
 msgstr ""
 
@@ -1188,7 +1188,7 @@ msgstr ""
 msgid "Custom Post:"
 msgstr ""
 
-#: admin/settings/options/rules.php:44 classes/Admin/ListTable.php:336
+#: admin/settings/options/rules.php:44 classes/Admin/ListTable.php:340
 msgid "All"
 msgstr ""
 
@@ -1516,31 +1516,31 @@ msgstr ""
 msgid "Font Style"
 msgstr ""
 
-#: admin/settings/pro-plugin.php:9
-msgid "PRO Functions"
+#: admin/settings/pro-plugin.php:21
+msgid "PRO FEATURES"
 msgstr ""
 
 #: admin/settings/sidebar.php:25
 msgid "Publish"
 msgstr ""
 
-#: admin/settings/sidebar.php:29 classes/Admin/ListTable.php:112
+#: admin/settings/sidebar.php:29 classes/Admin/ListTable.php:116
 msgid "Status"
 msgstr ""
 
-#: admin/settings/sidebar.php:32 classes/Admin/ListTable.php:283
+#: admin/settings/sidebar.php:32 classes/Admin/ListTable.php:284
 msgid "Deactivate"
 msgstr ""
 
-#: admin/settings/sidebar.php:37 classes/Admin/ListTable.php:109
+#: admin/settings/sidebar.php:37 classes/Admin/ListTable.php:113
 msgid "Test mode"
 msgstr ""
 
-#: admin/settings/sidebar.php:40 classes/Admin/ListTable.php:282
+#: admin/settings/sidebar.php:40 classes/Admin/ListTable.php:283
 msgid "Activate"
 msgstr ""
 
-#: admin/settings/sidebar.php:85 classes/Admin/ListTable.php:67
+#: admin/settings/sidebar.php:85 classes/Admin/ListTable.php:72
 msgid "Delete"
 msgstr ""
 
@@ -1568,11 +1568,11 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: classes/Admin/AdminNotices.php:52
+#: classes/Admin/AdminNotices.php:51
 msgid "Item Saved"
 msgstr ""
 
-#: classes/Admin/AdminNotices.php:58
+#: classes/Admin/AdminNotices.php:57
 msgid "Item Remove"
 msgstr ""
 
@@ -1588,11 +1588,11 @@ msgid ""
 "target=\"_blank\">rate us</a>"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:127
+#: classes/Admin/Dashboard.php:131
 msgid "Add New"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:161
+#: classes/Admin/Dashboard.php:165
 msgid "Update"
 msgstr ""
 
@@ -1608,91 +1608,96 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: classes/Admin/ImporterExporter.php:75
-msgid "Please upload a valid .json file"
+#: classes/Admin/ImporterExporter.php:81 classes/Admin/ImporterExporter.php:94
+msgid "Please select a file to import"
 msgstr ""
 
-#: classes/Admin/ImporterExporter.php:75
+#: classes/Admin/ImporterExporter.php:82 classes/Admin/ImporterExporter.php:89
+#: classes/Admin/ImporterExporter.php:95
 msgid "Error"
 msgstr ""
 
-#: classes/Admin/ListTable.php:59
+#: classes/Admin/ImporterExporter.php:88
+msgid "Please upload a valid .json file"
+msgstr ""
+
+#: classes/Admin/ListTable.php:64
 msgid "Untitled"
 msgstr ""
 
-#: classes/Admin/ListTable.php:63
+#: classes/Admin/ListTable.php:68
 msgid "Edit"
 msgstr ""
 
-#: classes/Admin/ListTable.php:65
+#: classes/Admin/ListTable.php:70
 msgid "Duplicate"
 msgstr ""
 
-#: classes/Admin/ListTable.php:69
+#: classes/Admin/ListTable.php:74
 msgid "Export"
 msgstr ""
 
-#: classes/Admin/ListTable.php:73
+#: classes/Admin/ListTable.php:78
 msgid "View"
 msgstr ""
 
-#: classes/Admin/ListTable.php:105
+#: classes/Admin/ListTable.php:110
 msgid "Title"
 msgstr ""
 
-#: classes/Admin/ListTable.php:107
-msgid "Statistics"
-msgstr ""
-
-#: classes/Admin/ListTable.php:110 classes/Admin/ListTable.php:113
+#: classes/Admin/ListTable.php:114
 msgid "The item will only be displayed for administrators."
 msgstr ""
 
-#: classes/Admin/ListTable.php:148
+#: classes/Admin/ListTable.php:117
+msgid "Display item on the Frontend."
+msgstr ""
+
+#: classes/Admin/ListTable.php:152
 msgid "UnTitle"
 msgstr ""
 
-#: classes/Admin/ListTable.php:149
+#: classes/Admin/ListTable.php:153
 msgid "Click for Deactivate."
 msgstr ""
 
-#: classes/Admin/ListTable.php:150
+#: classes/Admin/ListTable.php:154
 msgid "Click for Activate."
 msgstr ""
 
-#: classes/Admin/ListTable.php:151 classes/Admin/ListTable.php:160
+#: classes/Admin/ListTable.php:155 classes/Admin/ListTable.php:164
 msgid "OFF"
 msgstr ""
 
-#: classes/Admin/ListTable.php:153 classes/Admin/ListTable.php:162
+#: classes/Admin/ListTable.php:157 classes/Admin/ListTable.php:166
 msgid "ON"
 msgstr ""
 
-#: classes/Admin/ListTable.php:157
+#: classes/Admin/ListTable.php:161
 msgid "Click for OFF."
 msgstr ""
 
-#: classes/Admin/ListTable.php:158
+#: classes/Admin/ListTable.php:162
 msgid "Click for ON."
 msgstr ""
 
-#: classes/Admin/ListTable.php:281
+#: classes/Admin/ListTable.php:282
 msgid "Delate"
 msgstr ""
 
-#: classes/Admin/ListTable.php:284
+#: classes/Admin/ListTable.php:285
 msgid "Test mode ON"
 msgstr ""
 
-#: classes/Admin/ListTable.php:285
+#: classes/Admin/ListTable.php:286
 msgid "Test mode OFF"
 msgstr ""
 
-#: classes/Admin/ListTable.php:333
+#: classes/Admin/ListTable.php:337
 msgid "Filter by tag"
 msgstr ""
 
-#: classes/Admin/ListTable.php:349
+#: classes/Admin/ListTable.php:353
 msgid "Filter"
 msgstr ""
 
@@ -1740,15 +1745,15 @@ msgstr ""
 msgid "Send to Support"
 msgstr ""
 
-#: classes/Admin/SupportForm.php:177
+#: classes/Admin/SupportForm.php:179
 msgid "Your message has been sent to the support team."
 msgstr ""
 
-#: classes/Admin/SupportForm.php:180
+#: classes/Admin/SupportForm.php:182
 msgid "Sorry, but message did not send. Please, contact us via support page."
 msgstr ""
 
-#: classes/Admin/SupportForm.php:195
+#: classes/Admin/SupportForm.php:194
 msgid "Please fill in all the form fields below."
 msgstr ""
 
