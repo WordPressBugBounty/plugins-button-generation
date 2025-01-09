@@ -5,7 +5,7 @@ Tags:  button, buttons, floating, clickable, button generator
 Requires at least: 5.5
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 3.1
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ Please use WordPress support forum to ask any query.
 
 
 == Changelog ==
+= 3.1.1 =
+* Fixed: check footer page
+
 = 3.1 =
 * Added: Aria Label attribute for menu item
 * Added: link to changelog
