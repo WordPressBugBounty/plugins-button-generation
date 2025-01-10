@@ -56,9 +56,6 @@ class AdminActions {
 		} elseif ( strpos( $name, '_deactivate_mode' ) !== false ) {
 			Settings::deactivate_mode();
 		}
-		elseif ( strpos( $name, '_capabilities' ) !== false ) {
-			ManageCapabilities::save();
-		}
 
 		return true;
 	}
@@ -67,7 +64,7 @@ class AdminActions {
 		$nonce_action = WOWP_Plugin::PREFIX . '_nonce';
 		$nonce        = isset( $_REQUEST[ $name ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ $name ] ) ) : '';
 
-		return ( ! empty( $nonce ) ) && ( wp_verify_nonce( $nonce, $nonce_action ) || current_user_can( 'manage_options' ) );
+		return ( ! empty( $nonce ) &&  wp_verify_nonce( $nonce, $nonce_action ) && current_user_can( 'manage_options' ) );
 	}
 
 	private static function check_name(): string {
