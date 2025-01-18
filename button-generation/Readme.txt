@@ -3,7 +3,7 @@ Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/button-generator-pro/
 Tags:  button, buttons, floating, clickable, button generator
 Requires at least: 5.5
-Tested up to: 6.6
+Tested up to: 6.7.1
 Requires PHP: 7.4
 Stable tag: 3.1.2
 License: GPLv2 or later
