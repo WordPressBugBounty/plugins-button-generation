@@ -42,7 +42,7 @@ class Dashboard {
 		if ( false === strpos( $plugin_file, WOWP_Plugin::basename() ) ) {
 			return $plugin_meta;
 		}
-		$plugin_meta[] = '<a href="'. esc_url( WOWP_Plugin::info( 'change' ) ).'" target="_blank">'.esc_attr__( 'Check Version', 'button-generator-pro' ).'</a>';
+		$plugin_meta[] = '<a href="'. esc_url( WOWP_Plugin::info( 'change' ) ).'" target="_blank">'.esc_attr__( 'Check Version', 'button-generation' ).'</a>';
 
 		return $plugin_meta;
 	}

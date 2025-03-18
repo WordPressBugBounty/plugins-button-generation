@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Button Generator\n"
-"POT-Creation-Date: 2024-12-02 09:44+0200\n"
+"POT-Creation-Date: 2025-03-18 11:20+0200\n"
 "PO-Revision-Date: 2024-04-08 15:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: button-generation.php\n"
@@ -1386,6 +1386,10 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
+#: admin/settings/options/settings.php:103
+msgid "Aria label"
+msgstr ""
+
 #: admin/settings/options/style.php:11
 msgid "Rotate button"
 msgstr ""
@@ -1576,23 +1580,27 @@ msgstr ""
 msgid "Item Remove"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:33
+#: classes/Admin/Dashboard.php:34
 msgid "Settings"
 msgstr ""
 
+#: classes/Admin/Dashboard.php:45
+msgid "Check Version"
+msgstr ""
+
 #. translators: 1: Rating link (URL), 2: Plugin name
-#: classes/Admin/Dashboard.php:46
+#: classes/Admin/Dashboard.php:56
 #, php-format
 msgid ""
 "Thank you for using <b>%2$s</b>! Please <a href=\"%1$s\" "
 "target=\"_blank\">rate us</a>"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:131
+#: classes/Admin/Dashboard.php:141
 msgid "Add New"
 msgstr ""
 
-#: classes/Admin/Dashboard.php:165
+#: classes/Admin/Dashboard.php:175
 msgid "Update"
 msgstr ""
 

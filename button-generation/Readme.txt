@@ -3,9 +3,9 @@ Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/button-generator-pro/
 Tags:  button, buttons, floating, clickable, button generator
 Requires at least: 5.5
-Tested up to: 6.7.1
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ Please use WordPress support forum to ask any query.
 
 
 == Changelog ==
+= 3.1.3 =
+* Updated: translation file
+* Fixed: minor bugs
+
 = 3.1.2 =
 * Fixed: Nonce verification logic for improved security.
 
