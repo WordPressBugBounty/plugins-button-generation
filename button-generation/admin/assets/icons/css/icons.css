@@ -270,3 +270,31 @@ Generated using nucleoapp.com
 .wpie_icon-filter::before {
   content: "\ea36";
 }
+
+.wpie_icon-image::before {
+  content: "\ea37";
+}
+
+.wpie_icon-eye-closed::before {
+  content: "\ea38";
+}
+
+.wpie_icon-chevron-expand-y::before {
+  content: "\ea39";
+}
+
+.wpie_icon-money-time::before {
+  content: "\ea3a";
+}
+
+.wpie_icon-refund::before {
+  content: "\ea3b";
+}
+
+.wpie_icon-cloud-data-sync::before {
+  content: "\ea3c";
+}
+
+.wpie_icon-customer-support::before {
+  content: "\ea3d";
+}

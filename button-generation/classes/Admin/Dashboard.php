@@ -19,7 +19,7 @@ class Dashboard {
 
 	public static function init(): void {
 		add_filter( 'plugin_action_links', [ __CLASS__, 'settings_link' ], 10, 2 );
-		add_filter('plugin_row_meta', [ __CLASS__, 'plugin_link' ], 10, 4);
+		add_filter( 'plugin_row_meta', [ __CLASS__, 'plugin_link' ], 10, 4 );
 		add_filter( 'admin_footer_text', [ __CLASS__, 'footer_text' ] );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_assets' ] );
 		add_action( 'admin_menu', [ __CLASS__, 'admin_page' ] );
@@ -38,11 +38,11 @@ class Dashboard {
 		return $links;
 	}
 
-	public static function plugin_link($plugin_meta, $plugin_file, $plugin_data, $status) {
+	public static function plugin_link( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 		if ( false === strpos( $plugin_file, WOWP_Plugin::basename() ) ) {
 			return $plugin_meta;
 		}
-		$plugin_meta[] = '<a href="'. esc_url( WOWP_Plugin::info( 'change' ) ).'" target="_blank">'.esc_attr__( 'Check Version', 'button-generation' ).'</a>';
+		$plugin_meta[] = '<a href="' . esc_url( WOWP_Plugin::info( 'change' ) ) . '" target="_blank">' . esc_attr__( 'Check Version', 'button-generation' ) . '</a>';
 
 		return $plugin_meta;
 	}
@@ -118,6 +118,7 @@ class Dashboard {
 
 	public static function header(): void {
 		$logo_url = self::logo_url();
+		// phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 		?>
         <div class="wpie-header-wrapper">
             <div class="wpie-header-border"></div>
@@ -126,26 +127,25 @@ class Dashboard {
 					<?php
 					if ( ! empty( $logo_url ) ): ?>
                         <div class="wpie-logo">
-                            <img src="<?php
-							echo esc_url( $logo_url ); ?>" alt="<?php
-							echo esc_attr( WOWP_Plugin::info( 'name' ) ); ?> logo">
+                            <img src="<?php echo esc_url( $logo_url ); ?>"
+                                 alt="<?php echo esc_attr( WOWP_Plugin::info( 'name' ) ); ?> logo">
                         </div>
-					<?php
-					endif; ?>
-                    <h1><?php
-						echo esc_html( WOWP_Plugin::info( 'name' ) ); ?> <sup class="wpie-version"><?php
-							echo esc_html( WOWP_Plugin::info( 'version' ) ); ?></sup>
+					<?php endif; ?>
+                    <h1>
+						<?php echo esc_html( WOWP_Plugin::info( 'name' ) ); ?>
+                        <sup class="wpie-version">
+							<?php echo esc_html( WOWP_Plugin::info( 'version' ) ); ?>
+                        </sup>
                     </h1>
-                    <a href="<?php
-					echo esc_url( Link::add_new_item() ); ?>" class="button button-primary"><?php
-						esc_html_e( 'Add New', 'button-generation' ); ?>
+                    <a href="<?php echo esc_url( Link::add_new_item() ); ?>" class="button button-primary">
+						<?php esc_html_e( 'Add New', 'button-generation' ); ?>
                     </a>
-					<?php
-					do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
+					<?php do_action( WOWP_Plugin::PREFIX . '_admin_header_links' ); ?>
                 </div>
             </div>
         </div>
 		<?php
+		// phpcs:enable
 	}
 
 
@@ -163,15 +163,15 @@ class Dashboard {
 
 		$current_page = self::get_current_page();
 
-		$action = ( isset( $_REQUEST["action"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["action"] ) ) : '';
+		$action = ( isset( $_REQUEST["action"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["action"] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 		echo '<h2 class="nav-tab-wrapper wpie-nav-tab-wrapper">';
 		foreach ( $pages as $key => $page ) {
 			$class = ( $page['file'] === $current_page ) ? ' nav-tab-active' : '';
 			$id    = '';
 
-			if ( $action === 'update' && $page['file'] === 'settings' ) {
-				$id           = ( isset( $_REQUEST["id"] ) ) ? absint( $_REQUEST["id"] ) : '';
+			if ( $action === 'update' && $page['file'] === 'settings' ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$id           = ( isset( $_REQUEST["id"] ) ) ? absint( $_REQUEST["id"] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				$page['name'] = __( 'Update', 'button-generation' ) . ' #' . $id;
 			} elseif ( $page['file'] === 'settings' && ( $action !== 'new' && $action !== 'duplicate' ) ) {
 				continue;
@@ -186,7 +186,7 @@ class Dashboard {
 	public static function get_current_page(): string {
 		$default = DashboardHelper::first_file( 'pages' );
 
-		return ( isset( $_REQUEST["tab"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["tab"] ) ) : $default;
+		return ( isset( $_REQUEST["tab"] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST["tab"] ) ) : $default; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 	public static function include_pages(): void {

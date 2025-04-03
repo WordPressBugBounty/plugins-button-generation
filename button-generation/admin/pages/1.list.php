@@ -33,6 +33,11 @@ $wp_plugins = [
 		'title'   => 'Herd Effects',
 		'content' => 'Designed to create a “sense of queue” or “herd effect”, motivating the visitors of the page to perform any actions.'
 	],
+	[
+		'free'    => 'https://wordpress.org/plugins/flexi-menu/',
+		'title'   => 'Flexi Menu',
+		'content' => 'A powerful WordPress plugin for creating floating, dropdown, static, or context menus with ease.'
+	],
 
 ];
 

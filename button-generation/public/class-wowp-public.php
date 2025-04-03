@@ -206,6 +206,7 @@ class WOWP_Public {
 				$css_out .= $css->init();
 			}
 		}
+		wp_enqueue_style( $handle, $assets . 'css/button' . $this->pefix . '.css', [], $version, $media = 'all' );
 		wp_enqueue_script( $handle, $assets . 'js/button' . $this->pefix . '.js', array( 'jquery' ), $version, true );
 		wp_localize_script( $handle, 'btg_button', array(
 			'url'      => admin_url( 'admin-ajax.php' ),

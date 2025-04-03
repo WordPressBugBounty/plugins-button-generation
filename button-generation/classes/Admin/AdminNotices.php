@@ -27,6 +27,7 @@ class AdminNotices {
 
 	public static function admin_notice(): bool {
 
+	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Nonce verification is handled elsewhere.
 		if ( ! isset( $_GET['page'] ) ) {
 			return false;
 		}
@@ -40,6 +41,7 @@ class AdminNotices {
 		} elseif ( ! empty( $_GET['notice'] ) && $_GET['notice'] === 'remove_item' ) {
 			self::remove_item();
 		}
+		// phpcs:enable
 
 		return true;
 	}

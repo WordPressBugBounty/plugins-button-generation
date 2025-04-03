@@ -137,6 +137,7 @@ class SupportForm {
 			return;
 		}
 
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verification is handled elsewhere.
 		$from    = isset( $_POST['support']['name'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['name'] ) ) : '';
 		$email   = isset( $_POST['support']['email'] ) ? sanitize_email( wp_unslash( $_POST['support']['email'] ) ) : '';
 		$license = isset( $_POST['support']['license'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['license'] ) ) : '';
@@ -144,6 +145,7 @@ class SupportForm {
 		$link    = isset( $_POST['support']['link'] ) ? sanitize_url( wp_unslash( $_POST['support']['link'] ) ) : '';
 		$message = isset( $_POST['support']['message'] ) ? wp_kses_post( wp_unslash( $_POST['support']['message'] ) ) : '';
 		$type    = isset( $_POST['support']['type'] ) ? sanitize_text_field( wp_unslash( $_POST['support']['type'] ) ) : '';
+		// phpcs:enable
 
 		$headers = array(
 			'From: ' . esc_attr( $from ) . ' <' . esc_attr( $email ) . '>',
@@ -176,7 +178,7 @@ class SupportForm {
 		$send         = wp_mail( $to_mail, 'Support Request: ' . $type, $message_mail, $headers );
 
 		if ( $send ) {
-			$text = __( 'Your message has been sent to the support team.', 'button-generation' );
+			$text = __( 'Your message has been sent successfully! We will respond soon.', 'button-generation' );
 			echo '<p class="notice notice-success">' . esc_html( $text ) . '</p>';
 		} else {
 			$text = __( 'Sorry, but message did not send. Please, contact us via support page.', 'button-generation' );
@@ -190,8 +192,9 @@ class SupportForm {
 		$fields = [ 'name', 'email', 'link', 'type', 'plugin', 'license', 'message' ];
 
 		foreach ( $fields as $field ) {
+			// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verification is handled elsewhere.
 			if ( empty( $_POST['support'][ $field ] ) ) {
-				return __( 'Please fill in all the form fields below.', 'button-generation' );
+				return __( 'Please complete all required fields before submitting.', 'button-generation' );
 			}
 		}
 

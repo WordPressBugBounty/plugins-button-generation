@@ -27,18 +27,20 @@ class DBManager {
 		if ( ! $verify ) {
 			return false;
 		}
-
-		$page   = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
-		$id     = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : '';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : '';
 
 		if ( ( $page !== WOWP_Plugin::SLUG ) || ( $action !== 'delete' ) || empty( $id ) ) {
 			return false;
 		}
 
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
-
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$result = $wpdb->delete( $table, [ 'id' => $id ], [ '%d' ] );
 
 		if ( $result ) {
@@ -56,8 +58,9 @@ class DBManager {
 		}
 
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		return $wpdb->delete( $table, [ 'id' => $id ], [ '%d' ] );
 
 	}
@@ -65,7 +68,7 @@ class DBManager {
 	public static function create( $columns ): void {
 
 		global $wpdb;
-		$table           = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table           = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE {$table} ($columns) $charset_collate;";
@@ -76,7 +79,8 @@ class DBManager {
 
 	public static function get_all_data() {
 		global $wpdb;
-		$table  = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$result = $wpdb->get_results( "SELECT * FROM {$table} ORDER BY id ASC" );
 
 		return ( ! empty( $result ) && is_array( $result ) ) ? $result : false;
@@ -87,8 +91,9 @@ class DBManager {
 			return false;
 		}
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE id=%d", absint( $id ) ) );
 	}
 
@@ -107,21 +112,23 @@ class DBManager {
 		}
 
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		return $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE title=%s", sanitize_text_field( $title ) ) );
 	}
 
 	public static function update( $data, $where, $data_formats ): void {
 		global $wpdb;
-		$table  = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$result = $wpdb->update( $table, $data, $where, $data_formats );
 	}
 
 	public static function insert( $data, $data_formats ) {
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
-
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$result = $wpdb->insert( $table, $data, $data_formats );
 
 		if ( $result ) {
@@ -134,11 +141,11 @@ class DBManager {
 
 	public static function check_row( $id = '' ): bool {
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
 		if ( empty( $id ) ) {
 			return false;
 		}
-
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$check_row = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE id = %d", $id ) );
 		if ( ! empty( $check_row ) ) {
 			return true;
@@ -149,14 +156,16 @@ class DBManager {
 
 	public static function get_columns() {
 		global $wpdb;
-		$table = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		return $wpdb->get_results( "DESCRIBE {$table}" );
 	}
 
 	public static function display_tags(): void {
 		global $wpdb;
-		$table  = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$result = $wpdb->get_results( "SELECT * FROM {$table} order by tag desc", ARRAY_A );
 		$tags   = [];
 		if ( ! empty( $result ) ) {
@@ -175,7 +184,8 @@ class DBManager {
 
 	public static function get_tags_from_table() {
 		global $wpdb;
-		$table    = $wpdb->prefix . WOWP_Plugin::PREFIX;
+		$table = esc_sql( $wpdb->prefix . WOWP_Plugin::PREFIX );
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$all_tags = $wpdb->get_results( "SELECT DISTINCT tag FROM {$table} ORDER BY tag ASC", ARRAY_A );
 
 		return ! empty( $all_tags ) ? $all_tags : false;

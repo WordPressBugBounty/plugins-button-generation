@@ -81,9 +81,14 @@ class AdminActions {
 			WOWP_Plugin::PREFIX . '_capabilities',
 		];
 
+		$nonce_action = WOWP_Plugin::PREFIX . '_nonce';
+
 		foreach ( $names as $name ) {
 			if ( isset( $_REQUEST[ $name ] ) ) {
-				return $name;
+				$nonce = sanitize_text_field( wp_unslash( $_REQUEST[ $name ] ) );
+				if ( wp_verify_nonce( $nonce, $nonce_action ) && current_user_can( 'manage_options' ) ) {
+					return $name;
+				}
 			}
 		}
 

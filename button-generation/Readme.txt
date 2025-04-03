@@ -1,73 +1,109 @@
-=== Button Generator - easily Button Builder ===
+=== Button Generator – Easily Create Custom Buttons with Icons and Analytics ===
 Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/button-generator-pro/
-Tags:  button, buttons, floating, clickable, button generator
+Tags:  button, buttons, floating, clickable, button generator, call to action
 Requires at least: 5.5
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.1.3
+Stable tag: 3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create unique custom buttons with icons. Easily insert button in any place what you want. Create standard and floating buttons with analytics.
+Design and display custom buttons anywhere on your site. Add floating or inline buttons with icons, advanced targeting, and built-in analytics.
 
 == Description ==
-Button Generator - the simple and functional WordPress plugin for creating buttons. With the button builder plugin, you can easily create standard and floating button with icon for your own needs as you wish and then insert anywhere place on the site. Use analytics for each button for reach marketing targets.
 
-= Features =
+**Button Generator** is a lightweight and powerful WordPress plugin that lets you create custom buttons with icons, styles, and built-in analytics—without writing a single line of code.
 
-* **Powerful Style Options:** Go beyond pre-designed templates! Craft buttons with any custom style you can imagine. Tailor the color, background, borders, and typography to perfectly match your website's aesthetic.
-* **Live Preview:** See your button come to life as you create it! With the live builder, you can experiment and get instant feedback on your design choices before publishing the button.
-* **Massive Icon Library:** Integrate over 2000+ icons from Font Awesome to visually represent your buttons' functionalities. This adds clarity and enhances user understanding of your CTAs.
-* **Intuitive Button Placement:** Position your buttons strategically anywhere on your website. This ensures they appear at the most impactful moments in the user journey, driving conversions.
-* **Cloning for Efficiency:** Need to create similar buttons quickly? The cloning feature saves you time and effort by allowing you to duplicate existing buttons as a starting point for new ones.
-* **Responsive Design:** Rest assured that your buttons will look fantastic on any device! Button Generator ensures your CTAs are responsive and adapt seamlessly to different screen sizes.
+Add floating or inline buttons anywhere on your website. Customize their appearance with full control over size, colors, fonts, and effects. Use icons, define button placement, and even track performance with built-in stats.
 
-= Video Preview =
+🎨 Boost engagement. 💡 Improve navigation. 📈 Track results.
+
+== Features ==
+
+### 🛠️ Intuitive Button Builder
+- Visual live preview while editing
+- Choose between text, icon, or both
+- Add links, plus ID, class, and aria-label attributes
+
+### 🎨 Style Control
+- Set width, height, and z-index
+- Customize colors for text, background, icons, and hover states
+- Border settings: style, radius, thickness
+- Drop shadow options
+- Font settings: family, weight, size, style
+
+### 💫 Effects
+- Set transition duration (e.g. 0.2s)
+- Choose easing functions (ease, linear, etc.)
+
+### 🎯 Display & Targeting
+- Floating or inline button types
+- Position buttons anywhere on the screen
+- Display buttons using shortcode or with advanced rules like specific posts, pages, categories, tags, authors, or archive types.
+- Responsive visibility: hide on mobile or desktop
+- Option to disable Font Awesome loading
+
+### 📊 Analytics & Controls
+- Built-in tracking for views, clicks, and conversion rates
+- Enable/disable buttons and test mode for admin-only preview
+
+= 🎥 Video Preview =
 https://www.youtube.com/watch?v=JqFZjUT7YpM
 
-= Pro Features =
-* **Beautiful Effects** - Engage Your Visitors: Explore a Library of 70+ Dynamic Button Hover Effects.
-* **Translate** - Empower your visitors to translate your website content in real-time. Integrate this link type to break down language barriers and cater to a global audience.
-* **Social Sharing** - Boost your website's reach by incorporating a "Share" link. Choose from a staggering 29 different social media services, allowing users to effortlessly share your content across their preferred platforms.
-* **Next/Previous Post** - Simplify post navigation for readers. These link types automatically direct users to the next or previous post within the current category, keeping them engaged and exploring related content.
-* **Forced Download** - Offer downloadable resources like brochures, ebooks, or software directly through your floating menus. This eliminates the need for users to navigate to separate download pages.
-* **Scroll To Top/Bottom** - Provide users with convenient links to instantly scroll to the top or bottom of your webpage. This is particularly helpful for long pages or content-heavy sections.
-* **Smooth Scroll** - Enhance user experience with smooth scrolling animations. This link type ensures a visually pleasing and seamless transition when users navigate to different sections of your webpage.
-* **Print** - With a single click on the Print link, users can initiate the built-in printing function of their web browser. No more cumbersome text selection or manual copying.
-* **User Links** - This includes Login links for effortless account access, Logout links for secure sign-outs, Registration links for simplified account creation, and Password Recovery links for stress-free password retrieval, all readily available within the menu, empowering users to manage their accounts and interact with your website seamlessly.
-* **Deeper Analytics** - Empower with a deeper understanding of how users interact with your menu! This powerful feature allows you to track user clicks on specific menu items within Google Analytics.
-* **Informative Badges** - Add informative badges to your buttons. These badges act like mini signs that provide additional context or value to users, boosting the effectiveness of your buttons.
-* **Button Placement** - Easily add your button directly after or before content, such as at the in a blog post or product description. This is a perfect way to prompt users to take action.
-* **2000+ Icons** - Leverage a vast library of professional and versatile Font Awesome icons. This extensive collection encompasses a wide range of styles and categories, allowing you to find the perfect icon to visually represent your menu items
-* **Custom Icons** - Break free from the limitations of pre-defined icon libraries. Custom icons allow you to utilize any image or icon that complements your website's design.
-* **Emoji and Letter** - Sometimes, a simple emoji or letter can be the most effective way to represent a menu item. Float Menu Pro allows you to utilize emojis or individual letters as icons, offering a playful and informal touch to your menus.
-* **Custom Attributes** - Add specific attributes like CLASS and ID to each button for advanced control.
-* **Display Rules** - Control exactly where your menus appear using shortcodes, page types, post categories/tags, author pages, and date archives.
-* **Devices Rules** - Ensure optimal button visibility across all devices with options to hide/remove on specific screen sizes.
-* **Multilingual Support** - For websites catering to a global audience, Button Generator Pro allows you to restrict button visibility to specific languages. This ensures users only see button relevant to their chosen language setting.
-* **User Role** - Permissions Define which user roles (e.g., Administrator, Editor, Author) have the ability to see the button. This can be helpful for displaying internal buttons relevant only to website administrators or for specific user groups.
-* **Scheduling Schedule** - button appearances based on specific days, times, and dates. This allows you to promote temporary events or campaigns without cluttering your website permanently.
-* **Browser Compatibility** - Ensure your button display correctly across a wide range of browsers. If necessary, you can choose to hide menus for specific browsers to address compatibility issues with outdated software versions.
 
-[Demo page of the PRO version](https://wow-estore.com/interactive-demo-button-generator-pro/)
-
-== Installation ==
-In WordPress:
-
-1. Go to `Plugins` > `Add New` > search for `button generator`
-2. Press `Install Now` for the Button plugin
-3. Press `Activate Plugin`
-4. Go to plugin page 'Settings'
-
-Manual installation:
-
-1. Upload the `button-generation` directory to the `/wp-content/plugins/` directory
-1. Activate the plugin through the `Plugins` menu in WordPress
+== Support ==
+Need help? Visit the [Support Forum](https://wordpress.org/support/plugin/button-generation/)
 
 == Frequently Asked Questions ==
-Please use WordPress support forum to ask any query.
-[Support forum](https://wordpress.org/support/plugin/button-generation/)
+
+= Why don’t buttons appear on my site? =
+This is usually caused by caching. Please:
+1. Clear your browser cache (`Ctrl/Cmd + Shift + R`)
+2. Clear WordPress caching plugin cache
+3. Purge hosting-level cache (e.g., Cloudflare)
+4. Disable caching temporarily to test
+
+= Buttons only appear for admins. How to fix? =
+Make sure **Test Mode** is disabled in plugin settings.
+
+= Can I use multiple button sets? =
+Absolutely! You can create and display multiple unique sets on the same page.
+
+= Is the plugin multisite-compatible? =
+Yes, but avoid network-wide activation. Activate it per site.
+
+= Does Button Generator slow down my website? =
+No. It's lightweight and optimized for performance.
+
+== Installation Instructions ==
+
+### 📌 Option 1: Install via WordPress Dashboard
+
+1. Log into your WordPress admin (`wp-admin`).
+2. Navigate to `Plugins` → `Add New`.
+3. Search for **"Button Generator"** and click **"Install Now"**.
+4. Once installed, click **"Activate"**.
+
+### 📌 Option 2: Manual Installation (Upload)
+
+1. Download the Button Generator plugin ZIP file.
+2. In your WordPress admin, go to `Plugins` → `Add New` → `Upload Plugin`.
+3. Select the downloaded ZIP file and click **"Install Now"**.
+4. Click **"Activate"** after installation.
+
+### 📌 Option 3: Installation via FTP
+
+1. Download and unzip the Button Generator plugin.
+2. Upload the extracted `button-generation` folder to the `/wp-content/plugins/` directory on your server using FTP.
+3. Log in to WordPress admin, navigate to `Plugins`, and click **"Activate"** next to Button Generator.
+
+### 🚀 Getting Started
+
+1. After activation, navigate to the new `Button Generator` menu in your WordPress admin.
+2. Click **"Add New"** to create your first button set.
+3. Customize button settings as desired.
+4. Click **"Save"** to display your custom buttons on your website.
 
 == Screenshots ==
 1. Button Dashboard Content
@@ -80,89 +116,92 @@ Please use WordPress support forum to ask any query.
 
 
 == Changelog ==
+
+= 3.2 =
+* Updated: Added helpful links to the settings page for easier navigation.
+* Updated: Upgraded `wp-color-picker-alpha` to version 3.0.4 for improved compatibility.
+
 = 3.1.3 =
-* Updated: translation file
-* Fixed: minor bugs
+* Updated: Translation files.
+* Fixed: Minor visual and logic bugs.
 
 = 3.1.2 =
-* Fixed: Nonce verification logic for improved security.
+* Fixed: Enhanced nonce verification logic to improve security.
 
 = 3.1.1 =
-* Fixed: check footer page
+* Fixed: Button rendering issue in the footer.
 
 = 3.1 =
-* Added: Aria Label attribute for menu item
-* Added: link to changelog
-* Updated: Icon in the admin menu
+* Added: ARIA label support for accessibility.
+* Added: Link to changelog directly in plugin settings.
+* Updated: Admin menu icon.
 
 = 3.0.3 =
-* Fixed: Minor bugs related to escaping.
+* Fixed: Escaping-related issues for improved output security.
 
 = 3.0.2 =
-* Updated: FontAwesome Icon to version 6.6
+* Updated: FontAwesome icons to version 6.6.
 
 = 3.0.1 =
-* Improvement: Style and JS Downloads: Enhanced the download process for styles and JavaScript files.
-* Improvement: admin dashboard
+* Improved: Optimized downloading of styles and JavaScript files.
+* Improved: Admin dashboard layout and usability.
 
 = 3.0 =
-* Added: more variation for Display Rules like: Post has category,  Post has tag, Archives pages (category, tags, author)
-* Added: Transition Duration and Transition Function functions
-* Added: Login, logout, password, register links
-* Added: Icon font size and Icon color, Icon Hover Color
-* Added: Custom rotate button and icon
-* Added: Under and Above variants for option Text Location
-* Added: option Gap between text and icon
-* Added: Import/Export tool. You can easily export your buttons on other site.
-* Added: Tag for button for better search in button List
-* Added: Link to the page to button, for better navigation on what page button place
-* Updated: FontAwesome to version 6.5
-* Improvement: re-write jQuery on vanilla JS
-* Improvement: dashboard plugin page style
-* Improvement: buttons builder
-* Fixed: minor bugs
+* Added: New Display Rules – show buttons by category, tag, or archive pages.
+* Added: Transition Duration and Easing Function controls for smooth animations.
+* Added: User account buttons – login, logout, register, and password reset.
+* Added: Icon font size, icon color, and hover color options.
+* Added: Icon and text gap setting, with support for "Above" and "Under" text positions.
+* Added: Button import/export tool for transferring between sites.
+* Added: Button tags for easier organization and searching.
+* Added: Button-to-page linking for internal navigation.
+* Updated: FontAwesome library to version 6.5.
+* Improved: Replaced jQuery with vanilla JavaScript for performance.
+* Improved: Plugin dashboard and button builder UI.
+* Fixed: Various minor bugs.
 
 = 2.3.9 =
-* Fixed: security issue with the reset counter function
+* Fixed: Security vulnerability in the counter reset function.
 
 = 2.3.8 =
-* Fixed: dynamic property for PHP 8.2
+* Fixed: Compatibility issue with dynamic properties in PHP 8.2.
 
 = 2.3.7 =
-* Fixed: bug with style
+* Fixed: Styling bug affecting button appearance.
 
 = 2.3.6 =
-* Fixed: minor bugs
+* Fixed: General bug fixes.
 
 = 2.3.5 =
-* Fixed: escape the user input in page-list
+* Fixed: Escaping of user input in the page list feature.
 
 = 2.3.4 =
-* Fixed: fixed minor bugs
+* Fixed: Minor UI bugs and inconsistencies.
 
 = 2.3.3 =
-* Fixed: minor buf on plugin main page
+* Fixed: Typo and rendering bug on the main plugin page.
 
 = 2.3.2 =
-* Fixed: fixed minor bug;
+* Fixed: Display bug in the admin area.
 
 = 2.3.1 =
-* Fixed: save info in database;
+* Fixed: Issue with saving data to the database.
 
 = 2.3 =
-* Updated: Font Awesome Icons to version 5.14
-* Fixed: minor bug with color picker alpha script
+* Updated: FontAwesome icons to version 5.14.
+* Fixed: Bug in alpha channel of color picker.
 
 = 2.2 =
-* Updated: Font Awesome icons
-* Fixed: Display button on frontend
+* Updated: FontAwesome icon set.
+* Fixed: Frontend visibility issue for buttons.
 
 = 2.1 =
-* Fixed: Show on devices
+* Fixed: Button visibility on certain devices.
 
 = 2.0 =
-* Changed: database for plugin
-* Added: option for disabled FontAwesome
-* Fixed: links and admin menu
+* Changed: Refactored plugin database structure.
+* Added: Option to disable FontAwesome loading.
+* Fixed: Admin menu logic and link issues.
 
-= 1.0 = * Initial release
+= 1.0 =
+* Initial release.
