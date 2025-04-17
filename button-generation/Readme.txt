@@ -1,11 +1,11 @@
 === Button Generator – Easily Create Custom Buttons with Icons and Analytics ===
 Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/button-generator-pro/
-Tags:  button, buttons, floating, clickable, button generator, call to action
+Tags:  button, buttons, clickable, button generator, call to action
 Requires at least: 5.5
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.2
+Stable tag: 3.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,8 @@ No. It's lightweight and optimized for performance.
 
 
 == Changelog ==
+= 3.2.1 =
+* Fixed: when update the button settings, create a new button.
 
 = 3.2 =
 * Updated: Added helpful links to the settings page for easier navigation.

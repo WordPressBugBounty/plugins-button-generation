@@ -65,7 +65,7 @@ if ( ! isset( $options['live_preview'] ) ) {
 			<?php require_once WOWP_Plugin::dir() . 'admin/settings/sidebar.php'; ?>
         </div>
 
-        <input type="hidden" name="param[tool_id]" value="<?php echo absint( $id ); ?>" id="tool_id"/>
+        <input type="hidden" name="tool_id" value="<?php echo absint( $id ); ?>" id="tool_id"/>
         <input type="hidden" name="param[item_time]" value="<?php echo esc_attr( time() ); ?>"/>
 		<?php wp_nonce_field( WOWP_Plugin::PREFIX . '_nonce', WOWP_Plugin::PREFIX . '_settings' ); ?>
     </form>
