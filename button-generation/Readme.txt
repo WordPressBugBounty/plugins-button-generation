@@ -5,7 +5,7 @@ Tags:  button, buttons, floating, clickable, button generator, call to action
 Requires at least: 5.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 3.2.2
+Stable tag: 3.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,12 @@ No. It's lightweight and optimized for performance.
 
 
 == Changelog ==
+
+= 3.2.3 =
+* Improved: Refactored AdminActions class for better performance and readability
+* Improved: Reordered condition checks for better execution performance
+* Updated: Added strict type hinting for method arguments in AdminActions
+
 = 3.2.2 =
 * Improved: Reorganized method order in DBManager class for better readability and maintenance
 * Improved: Minor SQL formatting for consistency
