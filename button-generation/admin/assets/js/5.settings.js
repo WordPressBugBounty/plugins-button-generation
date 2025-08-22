@@ -82,7 +82,7 @@ jQuery(document).ready(function ($) {
         // $(selectors.settings).on('change', selectors.text_icon, custom_icon);
         // ;
         // $(selectors.settings).on('click', selectors.item_remove, item_remove);
-        // $(selectors.settings).on('click', selectors.item_heading, item_toggle);
+        $(selectors.settings).on('click', selectors.item_heading, item_toggle);
 
 
         $(selectors.settings).on('change click keyup', function () {

@@ -113,7 +113,8 @@
         css += get_icon_css();
         css += get_animation();
 
-        builder.html(template);
+        let cleanContent = DOMPurify.sanitize(template);
+        builder.html(cleanContent);
         style.html(css);
 
         function get_text() {
