@@ -3,7 +3,7 @@
  *  Plugin Name:       Button Generator
  *  Plugin URI:        https://wordpress.org/plugins/button-generation/
  *  Description:       Easy generation of custom buttons.
- *  Version:           3.2.4
+ *  Version:           3.2.5
  *  Author:            Wow-Company
  *  Author URI:        https://wow-estore.com/
  *  License:           GPL-2.0+
@@ -182,8 +182,6 @@ if ( ! class_exists( 'WOWP_Plugin' ) ) :
 		 */
 		public function loaded(): void {
 			UpdateDB::init();
-			$languages_folder = dirname( plugin_basename( __FILE__ ) ) . '/languages/';
-			load_plugin_textdomain( 'button-generation', false, $languages_folder );
 		}
 	}
 

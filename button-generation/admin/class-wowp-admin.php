@@ -128,7 +128,7 @@ class WOWP_Admin {
 //		wp_enqueue_style( $handle . '-fonticonpicker-darkgrey', $fonticonpicker_dark_css, null, $version );
 
 		$url_fontawesome = WOWP_Plugin::url() . '/vendors/fontawesome/css/all.css';
-		wp_enqueue_style( 'wowp-fontawesome', $url_fontawesome, null, '6.5.1' );
+		wp_enqueue_style( 'wowp-fontawesome', $url_fontawesome, null, '7.1' );
 
 	}
 

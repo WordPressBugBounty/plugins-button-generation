@@ -1,11 +1,11 @@
 === Button Generator – Easily Create Custom Buttons with Icons and Analytics ===
 Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/button-generator-pro/
-Tags:  button, buttons, floating, clickable, button generator, call to action
+Tags:  buttons, floating button, call button, floating menu, contact button
 Requires at least: 5.5
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 3.2.4
+Stable tag: 3.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,44 +13,58 @@ Design and display custom buttons anywhere on your site. Add floating or inline 
 
 == Description ==
 
-**Button Generator** is a lightweight and powerful WordPress plugin that lets you create custom buttons with icons, styles, and built-in analytics—without writing a single line of code.
+**Button Generator** is a lightweight and powerful WordPress plugin that lets you create fully customizable **buttons** with icons, styles, and built-in analytics — without writing a single line of code.
 
-Add floating or inline buttons anywhere on your website. Customize their appearance with full control over size, colors, fonts, and effects. Use icons, define button placement, and even track performance with built-in stats.
+Add floating **buttons**, inline **buttons**, or call-to-action **buttons** anywhere on your website. Each **button** can be customized with full control over size, colors, fonts, borders, and effects. You can also add icons, define **button** placement, and track performance with detailed analytics.
+
+With **Button Generator**, you can design contact **buttons**, floating  **buttons**, sticky action **buttons**, or **button** with any link.
 
 🎨 Boost engagement. 💡 Improve navigation. 📈 Track results.
 
 == Features ==
 
 ### 🛠️ Intuitive Button Builder
-- Visual live preview while editing
-- Choose between text, icon, or both
-- Add links, plus ID, class, and aria-label attributes
+*   Visual live preview while editing your **buttons**
+*   Choose between text **buttons**, icon **buttons**, or a mix of both
+*   Add links and attributes (ID, class, aria-label) for accessible **buttons**
 
 ### 🎨 Style Control
-- Set width, height, and z-index
-- Customize colors for text, background, icons, and hover states
-- Border settings: style, radius, thickness
-- Drop shadow options
-- Font settings: family, weight, size, style
+* Set **button** width, height, and z-index
+* Customize colors for **button** text, background, icons, and hover states
+* Border settings: style, radius, thickness
+* Drop shadow options for standout **buttons**
+* Font settings: family, weight, size, style
 
 ### 💫 Effects
-- Set transition duration (e.g. 0.2s)
-- Choose easing functions (ease, linear, etc.)
+*   Smooth **button** animations with custom transition duration
+*   Choose easing functions (ease, linear, etc.)
 
 ### 🎯 Display & Targeting
-- Floating or inline button types
-- Position buttons anywhere on the screen
-- Display buttons using shortcode or with advanced rules like specific posts, pages, categories, tags, authors, or archive types.
-- Responsive visibility: hide on mobile or desktop
-- Option to disable Font Awesome loading
+* Floating or inline **button** types
+* Position **buttons** anywhere on the screen
+* Display **buttons** via shortcode or advanced targeting rules (posts, pages, categories, tags, authors, archives)
+* Responsive visibility: show or hide **buttons** on mobile or desktop
+* Option to disable Font Awesome loading if not needed
 
 ### 📊 Analytics & Controls
-- Built-in tracking for views, clicks, and conversion rates
-- Enable/disable buttons and test mode for admin-only preview
+*   Built-in tracking for **button** views, clicks, and conversion rates
+*   Enable/disable specific **buttons** or use test mode for admin-only preview
 
 = 🎥 Video Preview =
 https://www.youtube.com/watch?v=JqFZjUT7YpM
 
+**Types of Buttons You Can Create**
+
+With **Button Generator**, you can design any type of **button** your website needs:
+
+- **Call Button** – let visitors contact you in one click.
+- **Chat Button** – open a live chat or messaging app.
+- **Email Button** – instantly launch an email client.
+- **Link Button** – redirect to internal pages or external websites.
+- **Floating Button** – keep important actions visible while scrolling.
+-  **Sticky Button** – fixed at the top or bottom of the page.
+- **Inline Button** – placed directly inside your content.
+- **Icon Button** – lightweight buttons with FontAwesome icons.
 
 == Support ==
 Need help? Visit the [Support Forum](https://wordpress.org/support/plugin/button-generation/)
@@ -116,6 +130,11 @@ No. It's lightweight and optimized for performance.
 
 
 == Changelog ==
+= 3.2.5 =
+* Updated: FontAwesome icons to version 7.1.
+* Update: purify.js to version 3.3.0.
+* Fixed: minor bugs.
+
 = 3.2.4 =
 * Fixed: issue with saving the option block status
 * Fixed: improved sanitization and escaping in the builder

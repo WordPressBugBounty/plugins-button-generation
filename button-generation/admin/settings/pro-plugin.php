@@ -14,7 +14,7 @@ $open       = ! empty( $item_order ) ? ' open' : '';
             <span class="wpie-item_heading_icon"><span
                         class="wpie-icon wpie_icon-rocket wpie-color-danger"></span></span>
             <span class="wpie-item_heading_label"><?php
-				esc_html_e( 'PRO VERSION', 'side-menu-lite' ); ?></span>
+				esc_html_e( 'PRO VERSION', 'button-generation' ); ?></span>
             <span class="wpie-item_heading_type"></span>
         </div>
 

@@ -88,7 +88,7 @@ class WOWP_Public {
 			$custom_css = '';
 			foreach ( $args as $id => $param ) {
 				if ( empty( $param['fontawesome'] ) ) {
-					wp_enqueue_style( $handle . '-fontawesome', $url_fontawesome, null, '6.6' );
+					wp_enqueue_style( $handle . '-fontawesome', $url_fontawesome, null, '7.1' );
 				}
 				if ( isset( $param['_set_style'] ) && $param['_set_style'] === true ) {
 					$css        = new Style( $id, $param );
@@ -195,7 +195,7 @@ class WOWP_Public {
 		$css_out    = '';
 		foreach ( $args as $id => $param ) {
 			if ( empty( $param['fontawesome'] ) ) {
-				wp_enqueue_style( $handle . '-fontawesome', $url_fontawesome, null, '6.6' );
+				wp_enqueue_style( $handle . '-fontawesome', $url_fontawesome, null, '7.1' );
 			}
 			if ( ! empty( $param['_in_footer'] ) ) {
 				$shortcodes .= '[' . WOWP_Plugin::SHORTCODE . ' id="' . absint( $id ) . '"]';
