@@ -5,7 +5,7 @@ Tags:  buttons, floating button, call button, floating menu, contact button
 Requires at least: 5.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 3.2.5
+Stable tag: 3.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,6 +130,11 @@ No. It's lightweight and optimized for performance.
 
 
 == Changelog ==
+= 3.2.6 =
+* Fixed: grammar error in ListTable
+* Fixed: wrong variable type in ListTable
+* Changed: method for output of buttons styles
+
 = 3.2.5 =
 * Updated: FontAwesome icons to version 7.1.
 * Update: purify.js to version 3.3.0.

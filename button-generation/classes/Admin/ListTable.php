@@ -237,7 +237,7 @@ class ListTable extends WP_List_Table {
 		$tag_search = ( $tag_search === 'all' ) ? '' : $tag_search;
 
 
-		$result = '';
+		$result = [];
 
 		$table = esc_sql($wpdb->prefix . WOWP_Plugin::PREFIX);
 
@@ -289,7 +289,7 @@ class ListTable extends WP_List_Table {
 
 	public function get_bulk_actions(): array {
 		$actions = [
-			'delete'     => __( 'Delate', 'button-generation' ),
+			'delete'     => __( 'Delete', 'button-generation' ),
 			'activate'   => __( 'Activate', 'button-generation' ),
 			'deactivate' => __( 'Deactivate', 'button-generation' ),
 			'test_on'    => __( 'Test mode ON', 'button-generation' ),

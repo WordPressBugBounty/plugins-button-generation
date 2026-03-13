@@ -214,7 +214,7 @@ class WOWP_Public {
 		) );
 
 		if ( ! empty( $css_out ) ) {
-			echo '<style>' . esc_html( $css_out ) . '</style>';
+			wp_add_inline_style( $handle, $css_out );
 		}
 
 		echo do_shortcode( $shortcodes );
