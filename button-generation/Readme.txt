@@ -3,9 +3,9 @@ Contributors: Wpcalc, lobov
 Donate link: https://wow-estore.com/item/button-generator-pro/
 Tags:  buttons, floating button, call button, floating menu, contact button
 Requires at least: 5.5
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.2.6
+Stable tag: 3.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,6 +130,9 @@ No. It's lightweight and optimized for performance.
 
 
 == Changelog ==
+= 3.2.7 =
+* Fixed: PHP warning "Undefined array key 'standard'" for buttons created before version 3.0
+
 = 3.2.6 =
 * Fixed: grammar error in ListTable
 * Fixed: wrong variable type in ListTable

@@ -111,12 +111,16 @@ class WOWP_Public {
 		$before = '';
 
 		foreach ( $args as $id => $param ) {
-			if ( $param['type'] === 'standard' ) {
-				if ( $param['standard'] === 'after' ) {
+			// Buttons created before v3.0 may not have the 'type'/'standard' keys
+			$type     = $param['type'] ?? 'standard';
+			$standard = $param['standard'] ?? 'shortcode';
+
+			if ( $type === 'standard' ) {
+				if ( $standard === 'after' ) {
 					unset( $param['_in_footer'] );
 					$after .= do_shortcode( '[' . esc_attr( WOWP_Plugin::SHORTCODE ) . ' id="' . absint( $id ) . '" ]' );
 				}
-				if ( $param['standard'] === 'before' ) {
+				if ( $standard === 'before' ) {
 					unset( $param['_in_footer'] );
 					$before .= do_shortcode( '[' . esc_attr( WOWP_Plugin::SHORTCODE ) . ' id="' . absint( $id ) . '"]' );
 				}
